@@ -43,7 +43,8 @@ int init_args(struct proxyargs *ptarg,int argc, _TCHAR* argv[])
     memset(ptarg,0,sizeof(*ptarg));
 
     strcpy(ptarg->proxyip,DEF_PROXY_IP);
-
+	ptarg->scan_port = 22; /* 默认扫描 ssh 端口 */
+	
     if( argc <= 1 ){
         os_pcapsock_getselfip(ptarg->localip);
         return 0;
